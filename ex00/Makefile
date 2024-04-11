@@ -17,6 +17,4 @@ run: $(TARGET)
 clean:
 	rm -f $(TARGET)
 
-fclean:	clean
-
-re:	fclean all
+re:	clean all

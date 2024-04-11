@@ -6,20 +6,20 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 16:58:42 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/06 16:13:58 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/04/11 14:51:46 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.hpp"
 
 int	PhoneBook::current = 0;
+int	PhoneBook::size = 0;
 /////////////////////////////////////////////////////////////////////////
 void	PhoneBook::setCurrent(){
 	current = (current + 1) % 8;
-}
-/////////////////////////////////////////////////////////////////////////
-int	PhoneBook::getContactSize(){
-	return sizeof(contacts) / sizeof(contacts[0]);
+	size++;
+	if (size > 8)
+		size = 8;
 }
 /////////////////////////////////////////////////////////////////////////
 int	PhoneBook::getCurrent(){
@@ -38,7 +38,7 @@ void	PhoneBook::printPhonebook(Contact contact)
 {
     std::string tmp;
 
-    std::cout << std::setw(10) << contact.getIndex() << " | ";
+    std::cout << std::setw(10) << contact.getIndex() << "|";
 	
     tmp = contact.getFirstName();
     if (tmp.size() <= 10)
@@ -63,7 +63,7 @@ void	PhoneBook::printPhonebook(Contact contact)
 /////////////////////////////////////////////////////////////////////////
 void PhoneBook::ft_search(PhoneBook *phonebook){
 	int i;
-	for (int j = 0; j < phonebook->getContactSize(); j++)
+	for (int j = 0; j < size; j++)
 		phonebook->printPhonebook(phonebook->contacts[j]);
 	std::cout << GRN << "Please enter the index you want to find: " << RES;
 	std::cin >> i;
@@ -89,66 +89,43 @@ void PhoneBook::ft_search(PhoneBook *phonebook){
 /////////////////////////////////////////////////////////////////////////
 void PhoneBook::ft_add(PhoneBook *phonebook){
 	int	index = phonebook->getCurrent();
-	std::string tmp = "";
 	phonebook->contacts[index].setIndex(index);
-	while(!tmp.size()){
-		std::cout << GRN << "Firstname: " << RES;
-		if (!std::getline(std::cin, tmp))
-		{
-			std::cin.clear();
-			std::cin.ignore();
-			std::cout << std::endl;
-			exit(0);
-		}
+	phonebook->contacts[index].SetContactFirstName(fillingContactString("Firstname"));
+	phonebook->contacts[index].SetContactLastName(fillingContactString("Lastname"));
+	phonebook->contacts[index].SetContactNickName(fillingContactString("Nickname"));
+	phonebook->contacts[index].SetContactDarkestSecret(fillingContactString("Darkestsecret"));
+	phonebook->contacts[index].SetContactNumber(fillingContactNumber("Number"));
+	phonebook->setCurrent();
+}
+/////////////////////////////////////////////////////////////////////////
+bool	findEndOfFile(std::string *tmp){
+	if (!std::getline(std::cin, *tmp))
+	{
+		std::cin.clear();
+		std::cin.ignore();
+		std::cout << std::endl;
+		return true;
 	}
-	phonebook->contacts[index].SetContactFirstName(tmp);
-	tmp = "";
+	return false;
+}
+/////////////////////////////////////////////////////////////////////////
+std::string	fillingContact(std::string str){
+	std::string tmp = "";
 	while(!tmp.size()){
-		std::cout << GRN << "Lastname: " << RES;
-		if (!std::getline(std::cin, tmp))
-		{
-			std::cin.clear();
-			std::cin.ignore();
-			std::cout << std::endl;
-			exit(0);
-		}
+	std::cout << GRN << str << ": " << RES;
+	if (!std::getline(std::cin, tmp)){
+		if (findEndOfFile(&tmp))
+			exit(0);}
+	tmp = removeWhiteSpaces(tmp);
 	}
-	phonebook->contacts[index].SetContactLastName(tmp);
-	tmp = "";
-	while(!tmp.size()){
-		std::cout << GRN << "Nickname: " << RES;
-		if (!std::getline(std::cin, tmp))
-		{
-			std::cin.clear();
-			std::cin.ignore();
-			std::cout << std::endl;
-			exit(0);
-		}
-	}
-	phonebook->contacts[index].SetContactNickName(tmp);
-	tmp = "";
-	while(!tmp.size()){
-		std::cout << GRN << "DarkestSecret: " << RES;
-		if (!std::getline(std::cin, tmp))
-		{
-			std::cin.clear();
-			std::cin.ignore();
-			std::cout << std::endl;
-			exit(0);
-		}
-	}
-	phonebook->contacts[index].SetContactDarkestSecret(tmp);
-	tmp = "";
+	return tmp;
+}
+/////////////////////////////////////////////////////////////////////////
+std::string	fillingContactNumber(std::string str){
+	std::string	tmp;
 	while(1){
-		std::cout << GRN << "Number: " << RES;
-		if (!std::getline(std::cin, tmp))
-		{
-			std::cin.clear();
-			std::cin.ignore();
-			std::cout << std::endl;
-			exit(0);
-		}
-		else if (!tmp.size()){
+		tmp = fillingContact(str);
+		if (!tmp.size()){
 			tmp = "";
 			continue;
 		}
@@ -161,10 +138,45 @@ void PhoneBook::ft_add(PhoneBook *phonebook){
 			}
 		}
 		if(allDigits){
-			phonebook->contacts[index].SetContactNumber(tmp);
 			break;
 		}
 	}
-	phonebook->setCurrent();
+	return (tmp);
 }
 /////////////////////////////////////////////////////////////////////////
+std::string removeWhiteSpaces(std::string str){
+	std::string::size_type i = 0;
+	std::string::size_type j = str.size() - 1;
+
+	while(i < str.size() && isspace((str[i]))){
+		i++;
+	}
+	while (j > i && isspace((str[j]))){
+		j--;
+	}
+
+	return str.substr(i, (j - i + 1));
+}
+/////////////////////////////////////////////////////////////////////////
+std::string	fillingContactString(std::string str){
+	std::string	tmp;
+	while(1){
+		tmp = fillingContact(str);
+		if (!tmp.size()){
+			tmp = "";
+			continue;
+		}
+		bool allDigits = true;
+		for(std::string::size_type i = 0; i < tmp.size(); i++){
+			if(!isalpha(tmp[i])){
+				std::cout << RED << "You should only enter alphabetical charachters\n" << RES;
+				allDigits = false;
+				break;
+			}
+		}
+		if(allDigits){
+			break;
+		}
+	}
+	return (tmp);
+}

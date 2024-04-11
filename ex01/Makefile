@@ -1,15 +1,17 @@
-CC = c++
+CXX = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = *.cpp
 
-TARGET = PhoneBook
+HDR = *.hpp
+
+TARGET = phonebook
 
 all: $(TARGET)
 
-$(TARGET): $(SRC)
-	$(CC) $(CFLAGS) -o $@ $^
+$(TARGET): $(SRC) $(HDR)
+	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
 run: $(TARGET)
 	./$(TARGET)
@@ -17,6 +19,4 @@ run: $(TARGET)
 clean:
 	rm -f $(TARGET)
 
-fclean:	clean
-
-re:	fclean all
+re:	clean all
