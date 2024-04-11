@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/08 11:41:38 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/11 10:19:09 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/04/11 10:23:45 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,9 @@ int Account::_totalNbWithdrawals = 0;
 
 void Account::_displayTimestamp(){
 	std::time_t	currentTime = std::time(0);
-	std::tm* localTime = std::localtime(&currentTime);
-	char dateTime[20];
+	std::tm*	localTime = std::localtime(&currentTime);
+	char		dateTime[20];
+
 	std::strftime(dateTime, sizeof(dateTime), "[%Y%m%d_%H%M%S]", localTime);
 	std::cout <<  dateTime << ' ';	
 }
