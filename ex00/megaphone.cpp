@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/02 16:46:18 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/02 17:32:55 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/04/09 16:29:52 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,14 +15,12 @@
 int main(int ac, char **av){
 	if (ac > 1){
 		for (int i = 1; i < ac; i++){
-			int j = 0;
-			while (av[i][j]){
-				if(isalpha(av[i][j]))
-					av[i][j] = toupper(av[i][j]);
-				j++;
+			std::string str = av[i];
+			for (std::string::iterator j = str.begin(); j < str.end(); j++){
+				if(isalpha(*j))
+					*j = toupper(*j);
 			}
-			if (av[i])
-			std::cout << av[i];
+			std::cout << str;
 		}
 	}
 	else
