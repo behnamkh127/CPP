@@ -10,6 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
+
 #include "Contact.hpp"
 #include <iomanip>
 
@@ -27,4 +29,3 @@ class PhoneBook{
 		void		ft_add(PhoneBook *phonebook);
 		void		printPhonebook(Contact contact);
 };
-
