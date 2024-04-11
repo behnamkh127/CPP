@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/03 16:58:42 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/11 14:51:46 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/04/11 15:06:35 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -168,7 +168,7 @@ std::string	fillingContactString(std::string str){
 		}
 		bool allDigits = true;
 		for(std::string::size_type i = 0; i < tmp.size(); i++){
-			if(!isalpha(tmp[i])){
+			if(!isalpha(tmp[i]) && !isspace(tmp[i])){
 				std::cout << RED << "You should only enter alphabetical charachters\n" << RES;
 				allDigits = false;
 				break;
