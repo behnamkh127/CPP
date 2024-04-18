@@ -1,16 +1,14 @@
 CXX = c++
 
-CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -g
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 
 SRC = *.cpp
 
-HDR = *.hpp
-
-TARGET = horde
+TARGET = sedIsForLosers
 
 all: $(TARGET)
 
-$(TARGET): $(SRC) $(HDR)
+$(TARGET): $(SRC) 
 	$(CXX) $(CXXFLAGS) -o $(TARGET) $(SRC)
 
 run: $(TARGET)

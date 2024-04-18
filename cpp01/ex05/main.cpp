@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:12:06 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/16 16:29:30 by bekhodad         ###   ########.fr       */
+/*   Created: 2024/04/18 12:59:40 by bekhodad          #+#    #+#             */
+/*   Updated: 2024/04/18 13:11:01 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include "Harl.hpp"
 
-Weapon::Weapon(std::string str) : _type(str){}
-/* ************************************************************************** */
-void	Weapon::setType(std::string newType){
-	_type = newType;
-}
-/* ************************************************************************** */
-const	std::string&	Weapon::getType(){
-	return _type;
+int main(int ac, char* av[]){
+	Harl		obj;
+	std::string str;
+	
+	switch(ac){
+		case 1:
+			obj.complain("");
+			break;
+		case 2:
+			str = av[1];
+			obj.complain(str);
+			break;
+		default:
+			std::cerr << "More arguments than it's needed\n";
+			break;
+	}
+	return 0;
 }

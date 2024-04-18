@@ -1,25 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   FileClass.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/16 10:54:37 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/16 17:09:27 by bekhodad         ###   ########.fr       */
+/*   Created: 2024/04/17 13:02:48 by bekhodad          #+#    #+#             */
+/*   Updated: 2024/04/18 09:37:08 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "Weapon.hpp"
+#include <string>
+#include <iostream>
+#include <fstream>
 
-class HumanB{
+class FileClass{
 	public:
-		HumanB(std::string str);
-		void	setWeapon(Weapon& weaponName);
-		void	attack();
+		FileClass(char* av[]);
+		std::string	getFileName();
+		std::string	getNewFileName();
+		std::string	GetString(int i);
+		bool		FailCondition(std::ifstream& file, std::ofstream& newFile);
+		void		FillingNewFile(std::ifstream& file, std::ofstream& newFile);
 	private:
-		std::string	_name;
-		Weapon*		_Weapon;
+		std::string filename;
+		std::string filename2;
+		std::string s1;
+		std::string s2;
 };

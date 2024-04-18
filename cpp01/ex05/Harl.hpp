@@ -1,23 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Weapon.cpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/13 15:12:06 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/16 16:29:30 by bekhodad         ###   ########.fr       */
+/*   Created: 2024/04/18 10:21:46 by bekhodad          #+#    #+#             */
+/*   Updated: 2024/04/18 13:03:53 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Weapon.hpp"
+#include <iostream>
+#include <string>
 
-Weapon::Weapon(std::string str) : _type(str){}
-/* ************************************************************************** */
-void	Weapon::setType(std::string newType){
-	_type = newType;
-}
-/* ************************************************************************** */
-const	std::string&	Weapon::getType(){
-	return _type;
-}
+class Harl {
+	public:
+		Harl();
+		void	complain(std::string level);
+		int		GetLevelIndex(std::string level);
+	private:	
+		void	debug(void);
+		void	info(void);
+		void	warning(void);
+		void	error(void);
+		void	(Harl::*funcPtrs[4])(void);
+};
