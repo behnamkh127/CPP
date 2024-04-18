@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 18:01:33 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/13 15:01:11 by bekhodad         ###   ########.fr       */
+/*   Created: 2024/04/13 15:06:46 by bekhodad          #+#    #+#             */
+/*   Updated: 2024/04/13 15:18:23 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-
-#include <iostream>
 #include <string>
+#include <iostream>
 
-class Zombie{
+class Weapon{
 	public:
-		void	announce(void);
-		void	setName(std::string name);
+		const std::string&	getWeapon();
+		void				setWeapon(std::string newType);
 	private:
-		std::string	_name;	
+		std::string _type;	
 };
-
-Zombie*	zombieHorde(int N, std::string name);

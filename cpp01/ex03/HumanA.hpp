@@ -1,26 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/12 18:01:33 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/13 15:01:11 by bekhodad         ###   ########.fr       */
+/*   Created: 2024/04/13 17:57:04 by bekhodad          #+#    #+#             */
+/*   Updated: 2024/04/13 18:02:01 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Weapon.hpp"
 
-#include <iostream>
-#include <string>
-
-class Zombie{
+class	HumanA{
 	public:
-		void	announce(void);
-		void	setName(std::string name);
+		HumanA();
+		void	attack();
 	private:
-		std::string	_name;	
+		std::string	_name;
+		std::string	_Weapon;	
 };
-
-Zombie*	zombieHorde(int N, std::string name);
