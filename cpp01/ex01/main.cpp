@@ -19,5 +19,6 @@ int main(void){
 	for ( int i = 0; i < 10; i++){
 		example2[i].announce();
 	}
-	delete[] example2;
+	if(example2)
+		delete[] example2;
 }

@@ -12,6 +12,14 @@
 
 #include "Zombie.hpp"
 
+Zombie::Zombie(){
+	std::cout << _name << "This zombie created.\n";
+}
+//**********************************************************************//
+Zombie::~Zombie(){
+	std::cout << "This zombie destroyed\n";
+}
+//**********************************************************************//
 void	Zombie::announce(void){
 	std::cout << _name << ": BraiiiiiiinnnzzzZ...\n";
 }

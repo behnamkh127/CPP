@@ -14,10 +14,14 @@
 
 Zombie*	zombieHorde(int N, std::string name){
 	Zombie* newZombie = new Zombie[N];
-	for(int i = 0; i < N; i++){
-		std::string newName = name;
-		newName.push_back('0' + i); // not in c++98
-		newZombie[i].setName(newName);
+	if(N > 0){
+		for(int i = 0; i < N; i++){
+			std::string newName = name;
+			newName.push_back('0' + i);
+			newZombie[i].setName(newName);
+		}
+		return newZombie;
 	}
-	return newZombie;
+	else
+		return NULL;
 }

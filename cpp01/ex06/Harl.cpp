@@ -20,17 +20,24 @@ Harl::Harl() {
 }
 
 int	Harl::GetLevelIndex(std::string level) {
-	if (level == "DEBUG")
-		return 0;
-	if (level == "INFO")
-		return 1;
-	if (level == "WARNING")
-		return 2;
-	if (level == "ERROR")
-		return 3;
-	if (level == "")
-		return 4;
-	return -1;  // return -1 or throw an exception if level is not valid
+	std::string messages[4] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+	int j = 0;
+	int k = 0;
+	std::string str;
+
+	while(j < 4 && k == 0){
+		str = messages[j];
+		long unsigned int i = 0;
+		int d = 0;
+		while(i < str.size() && d == 0){
+			char c1 = level[i];
+			char c2 = str[i];
+			d = (c1 - c2 == 0) ? (i++, 0) : -1;
+		}
+		k = (d == 0) ? 5 : (j++, 0);
+	}
+
+	return (j < 4) ? j : -1;
 }
 
 void	Harl::complain(std::string level){
@@ -38,10 +45,13 @@ void	Harl::complain(std::string level){
 	switch(index){
         case 0:
             (this->*funcPtrs[0])();
+			//fallthrough
         case 1:
             (this->*funcPtrs[1])();
+			//fallthrough
         case 2:
             (this->*funcPtrs[2])();
+			//fallthrough
         case 3:
             (this->*funcPtrs[3])();
             break;
