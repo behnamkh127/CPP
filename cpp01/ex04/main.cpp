@@ -19,8 +19,8 @@ int	main(int ac, char* av[]){
 	}
 	
 	FileClass newProject(av);
-	std::ifstream file(newProject.getFileName());
-	std::ofstream newFile(newProject.getNewFileName());
+	std::ifstream file(newProject.getFileName().c_str());
+	std::ofstream newFile(newProject.getNewFileName().c_str());
 	if(newProject.FailCondition(file, newFile)){
 		return 1;
 	}
