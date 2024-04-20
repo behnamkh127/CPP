@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/12 18:20:38 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/18 14:21:56 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/04/18 14:27:00 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 Zombie*	zombieHorde(int N, std::string name){
 	Zombie* newZombie = new Zombie[N];
+<<<<<<< HEAD
 	if(N > 0){
 		for(int i = 0; i < N; i++){
 			std::string newName = name;
@@ -21,6 +22,12 @@ Zombie*	zombieHorde(int N, std::string name){
 			newZombie[i].setName(newName);
 		}
 		return newZombie;
+=======
+	for(int i = 0; i < N; i++){
+		std::string newName = name;
+		newName.push_back('0' + i);
+		newZombie[i].setName(newName);
+>>>>>>> refs/remotes/origin/main
 	}
 	else
 		return NULL;

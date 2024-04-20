@@ -6,9 +6,11 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 13:45:24 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/18 14:07:59 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/04/19 09:53:05 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#pragma once
 
 #include <string>
 #include <iostream>

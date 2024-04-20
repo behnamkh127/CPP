@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:02:26 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/18 09:38:20 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/04/19 10:17:21 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,12 +51,20 @@ bool	FileClass::FailCondition(std::ifstream& file, std::ofstream& newFile){
 /* ************************************************************************** */
 void	FileClass::FillingNewFile(std::ifstream& file, std::ofstream& newFile){
 	std::string line;
+    int lineCount = 0;
+	
+	findLineCount(lineCount, file);
+	
 	while (std::getline(file, line)){
 		std::string::size_type i = 0;
-		while(i < line.size() - 1){
+		while(i <= line.size()){
 			i = line.find(s1, 0);
 			if (i == std::string::npos){
-				newFile << line << '\n';
+				newFile << line;
+				if(lineCount){
+					newFile << '\n';
+					lineCount--;
+				}
 				break;
 			}
 			else{
@@ -67,4 +75,21 @@ void	FileClass::FillingNewFile(std::ifstream& file, std::ofstream& newFile){
 			}
 		}
 	}
+	
+	while(lineCount){
+		newFile << '\n';
+		lineCount--;
+	}
+}
+/* ************************************************************************** */
+void	findLineCount(int& lineCount, std::ifstream& file){
+	char ch;
+
+	while (file.get(ch)) {
+		if (ch == '\n') {
+			lineCount++;
+		}
+	}
+	file.clear();
+	file.seekg(0, std::ios::beg);
 }

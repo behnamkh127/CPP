@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/17 13:02:48 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/18 09:37:08 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/04/19 09:51:42 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,3 +30,5 @@ class FileClass{
 		std::string s1;
 		std::string s2;
 };
+
+void	findLineCount(int& lineCount, std::ifstream& file);
