@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/18 10:24:39 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/18 13:17:17 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/04/21 17:37:03 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,26 @@ int	Harl::GetLevelIndex(std::string level) {
 	int j = 0;
 	int k = 0;
 	std::string str;
+	long unsigned int i = 0;
+	int d = 0;
 
 	while(j < 4 && k == 0){
 		str = messages[j];
-		long unsigned int i = 0;
-		int d = 0;
-		while(i < str.size() && d == 0){
-			char c1 = level[i];
-			char c2 = str[i];
-			d = (c1 - c2 == 0) ? (i++, 0) : -1;
+		switch (str.size() - level.size()){
+			case 0:
+				i = 0;
+				d = 0;
+				while(i < str.size() && d == 0){
+					char c1 = level[i];
+					char c2 = str[i];
+					d = (c1 - c2 == 0) ? (i++, 0) : -1;
+				}
+				k = (d == 0) ? 5 : (j++, 0);
+				break;
+			default:
+				j++;
+				break;
 		}
-		k = (d == 0) ? 5 : (j++, 0);
 	}
 
 	return (j < 4) ? j : -1;
