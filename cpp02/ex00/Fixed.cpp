@@ -3,31 +3,34 @@
 /*                                                        :::      ::::::::   */
 /*   Fixed.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: bekhodad <bekhodad@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 17:51:37 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/27 18:32:48 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/04/28 14:27:25 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+static const int	_fb = 8;
+/* ************************************************************************** */
 Fixed::Fixed() : _fpn(0) {
 	std::cout << "Default constructor called\n";
 }
 /* ************************************************************************** */
-Fixed::Fixed(const Fixed& other) : _fpn(other._fpn) {
+Fixed::Fixed(const Fixed& other){
 	std::cout << "Copy constructor called\n";
+	operator=(other);
 }
 /* ************************************************************************** */
 Fixed& Fixed::operator=(const Fixed& other){
+	std::cout << "Copy assignment operator called\n";
 	if (this != &other)
-		_fpn = other._fpn;
-	std::cout << "Copy assignment called\n";
+		setRawBits(other.getRawBits());
 	return *this;
 }
 /* ************************************************************************** */
-int	Fixed::getRawBits(void){
+int	Fixed::getRawBits(void)const{
 	std::cout << "getRawBits member fuction called\n";
 	return (_fpn);
 }
