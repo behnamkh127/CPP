@@ -6,13 +6,13 @@
 /*   By: bekhodad <bekhodad@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 17:51:37 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/28 14:27:25 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/04/29 14:18:09 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-static const int	_fb = 8;
+const int	Fixed::_fb = 8;
 /* ************************************************************************** */
 Fixed::Fixed() : _fpn(0) {
 	std::cout << "Default constructor called\n";
