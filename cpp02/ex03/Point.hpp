@@ -1,30 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Point.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekhodad <bekhodad@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/28 13:50:16 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/30 12:49:57 by bekhodad         ###   ########.fr       */
+/*   Created: 2024/04/30 15:58:39 by bekhodad          #+#    #+#             */
+/*   Updated: 2024/05/01 11:37:50 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
-#include <string>
+#pragma once
 
-class Fixed{
-	public:
-		Fixed();
-		Fixed(int const num);	
-		Fixed(float const num);
-		Fixed(const Fixed& other);
-		Fixed&	operator=(const Fixed& other);
-		float	toFloat(void)const;
-		int		toInt(void)const;
-		// ~Fixed();
+#include "Fixed.hpp"
+
+class	Point{
 	private:
-		int _fpn;
-		static const int _fb;
+		const Fixed _x;
+		const Fixed _y;
+	public:
+		Point();
+		Point(float const x, float const y);
+		Point(const Point& other);
+		Point& operator=(const Point& other);
+		float get_x()const;
+		float get_y()const;
+		~Point();	
 };
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed);
+
+bool bsp( Point const a, Point const b, Point const c, Point const point);
+float area(Point const a, Point const b, Point const c);
