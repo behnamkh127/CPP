@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 17:02:39 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/29 16:58:29 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/01 18:56:05 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,36 +31,19 @@ Fixed::Fixed(const Fixed& other){
 
 Fixed& Fixed::operator=(const Fixed& other){
 	std::cout << "Copy assignment operator called\n";
-	if (this != &other) {
-		_fpn = other._fpn;
-	}
+	_fpn = other._fpn;
 	return *this;
 }
 /* ************************************************************************** */
 
-std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
-	os << fixed.toFloat();
-	return os;
-}
-/* ************************************************************************** */
-
-float Fixed::toFloat(void) const {
-	return static_cast<float>(_fpn) / (1 << _fb);
-}
-/* ************************************************************************** */
-
 bool	Fixed::operator!=(const Fixed& other)const{
+
 	return this->toFloat() != other.toFloat();
 }
 /* ************************************************************************** */
 
 bool	Fixed::operator>(const Fixed& other)const{
 	return this->toFloat() > other.toFloat();
-}
-/* ************************************************************************** */
-
-bool	Fixed::operator==(const Fixed& other)const{
-	return this->toFloat() == other.toFloat();
 }
 /* ************************************************************************** */
 
@@ -157,8 +140,20 @@ Fixed& Fixed::max(Fixed& a, Fixed& b){
 }
 /* ************************************************************************** */
 
+float Fixed::toFloat(void) const {
+	return static_cast<float>(_fpn) / (1 << _fb);
+}
+/* ************************************************************************** */
+
 int Fixed::toInt(void) const {
 	return _fpn >> _fb;
 }
+/* ************************************************************************** */
 
 Fixed::~Fixed() {std::cout << "Destructor called\n";}
+/* ************************************************************************** */
+
+std::ostream& operator<<(std::ostream& os, const Fixed& fixed) {
+	os << fixed.toFloat();
+	return os;
+}

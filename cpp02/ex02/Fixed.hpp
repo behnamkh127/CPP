@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 13:50:16 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/04/29 16:20:12 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/01 18:55:54 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,10 @@ class Fixed{
 		Fixed&	operator=(const Fixed& other);
 		bool	operator==(const Fixed& other) const;
 		bool	operator!=(const Fixed& other) const;
-		bool	operator<(const Fixed& other) const;
 		bool	operator>(const Fixed& other) const;
-		bool	operator<=(const Fixed& other) const;
 		bool	operator>=(const Fixed& other) const;
+		bool	operator<=(const Fixed& other) const;
+		bool	operator<(const Fixed& other) const;
 		Fixed	operator+(const Fixed& other) const;
 		Fixed	operator-(const Fixed& other) const;
 		Fixed	operator*(const Fixed& other) const;

@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/30 15:58:36 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/01 11:46:42 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/01 19:01:23 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,4 +32,4 @@ float Point::get_y()const{
 	return _y.toFloat();
 }
 
-Point::~Point() {}//std::cout << "this point removed\n";}
+Point::~Point() {std::cout << "this point removed\n";}

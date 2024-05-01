@@ -1,6 +1,6 @@
 CXX = c++
 
-CXXFLAGES = -Wall -Wextra -Werror -std=c++98 -g
+CXXFLAGES = -Wall -Wextra -Werror -std=c++98 -g -fsanitize=address
 
 SRC = *.cpp
 
