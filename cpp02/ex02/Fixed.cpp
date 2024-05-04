@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/28 17:02:39 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/01 18:56:05 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/03 12:03:49 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,12 @@ Fixed& Fixed::operator=(const Fixed& other){
 /* ************************************************************************** */
 
 bool	Fixed::operator!=(const Fixed& other)const{
-
 	return this->toFloat() != other.toFloat();
+}
+/* ************************************************************************** */
+
+bool	Fixed::operator==(const Fixed& other)const{
+	return this->toFloat() == other.toFloat();
 }
 /* ************************************************************************** */
 
