@@ -1,20 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DimondTrap.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekhodad <bekhodad@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/04 15:35:42 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/05 15:24:45 by bekhodad         ###   ########.fr       */
+/*   Created: 2024/05/05 17:19:52 by bekhodad          #+#    #+#             */
+/*   Updated: 2024/05/05 17:20:02 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-
-class ScavTrap : public ClapTrap{
-	public:
-		ScavTrap(std::string name);
-		void	guardGate();
-		~ScavTrap();
-};

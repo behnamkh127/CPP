@@ -1,20 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   DimondTrap.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekhodad <bekhodad@student.42wolfsburg.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/04 15:35:42 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/05 15:24:45 by bekhodad         ###   ########.fr       */
+/*   Created: 2024/05/05 17:19:48 by bekhodad          #+#    #+#             */
+/*   Updated: 2024/05/05 17:24:07 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "FragTrap.hpp"
+#include "ScavTrap.hpp"
 
-class ScavTrap : public ClapTrap{
+class DimondTrap : public FragTrap, public ScavTrap{
+	private:
+
 	public:
-		ScavTrap(std::string name);
-		void	guardGate();
-		~ScavTrap();
+		DimondTrap(std::string name);
+		void	whoAmI();
+		~DimondTrap();
 };
