@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/03 12:12:49 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/08 13:41:24 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:13:54 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,11 @@ class ClapTrap{
 		void		takeDamage(unsigned int amount);
 		void		beRepaired(unsigned int amount);
 	//getter for test
-		// void objectvalues(){
-		// 	std::cout << RED << _Name << " has hit point = " << _HitPoint;
-		// 	std::cout << ", energy point = " << _EnergyPoint;
-		// 	std::cout << ", attack damage = " << _AttackDamage << std::endl << RES;
-		// }
+		std::string		get_name();
+		unsigned int	get_attack();
+		unsigned int	get_hit();
+		unsigned int	get_energy();
+	//introduce
+		void	objIntroduce();
+
 };

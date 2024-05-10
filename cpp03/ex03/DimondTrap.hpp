@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 17:19:48 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/09 14:37:13 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/10 11:42:34 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,8 @@ class DiamondTrap : public ScavTrap, public FragTrap{
 		void	whoAmI();
 	//getter for test
 		void objectvalues(){
-			std::cout << RED << _Name << " has hit point = " << _HitPoint;
-			std::cout << ", energy point = " << this->_EnergyPoint;
-			std::cout << ", attack damage = " << _AttackDamage << std::endl << RES;
+			std::cout  << _Name << " has hit point = " << _HitPoint;
+			std::cout << ", energy point = " << ScavTrap::getEnergyPoint();
+			std::cout << ", attack damage = " << _AttackDamage << std::endl;
 		}
 };

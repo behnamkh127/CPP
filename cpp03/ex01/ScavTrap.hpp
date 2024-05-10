@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 15:35:42 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/08 13:30:46 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/10 16:25:13 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ class ScavTrap : virtual public ClapTrap{
 		~ScavTrap();
 	//other member func
 		ScavTrap(std::string name);
+		void	attack(std::string target);
 		void	guardGate();
+
 };

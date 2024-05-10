@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 15:54:41 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/08 13:32:06 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:51:59 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,20 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& rhs){
 }
 /* ************************************************************************** */
 
+void	ScavTrap::attack(std::string target){
+	if(this->_HitPoint > 0 && this->_EnergyPoint > 0){
+		_EnergyPoint--;
+		std::cout << GRN << "ScavTrap " << RES << _Name << " attacks " << target << " , causing " << _AttackDamage << " points of damage!\n";
+	}
+	else
+		std::cout << GRN << "ScavTrap " << _Name << " doesn't have enough energy point to attack\n" << RES;
+}
+/* ************************************************************************** */
+
 void	ScavTrap::guardGate(){
 	std::cout << GRN << "ScavTrap is now in Gate keeper mode\n" << RES;
 }
 /* ************************************************************************** */
+
 
 ScavTrap::~ScavTrap() {std::cout << GRN << "ScavTrap destructor Called\n" << RES;}

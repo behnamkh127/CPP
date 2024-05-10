@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 10:58:59 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/08 12:40:01 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/10 17:53:28 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ void	ClapTrap::attack(const std::string& target){
 	
 	if(this->_HitPoint > 0 && this->_EnergyPoint > 0){
 		_EnergyPoint--;
-		std::cout << "ClapTrap " << _Name << " attacks " << target << " , causing " << _AttackDamage << " points of damage!\n";
+		std::cout << BLU << "ClapTrap " << RES << _Name << " attacks " << target << " , causing " << RED << _AttackDamage << RES << " points of damage!\n";
 	}
 	else
-		std::cout << "ClapTrap " << _Name << " doesn't have enough energy point to attack\n";
+		std::cout << BLU << "ClapTrap " << RES << _Name << " doesn't have enough energy point to attack\n";
 }
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ClapTrap::takeDamage(unsigned int amount){
 		_HitPoint -= amount;
 	else
 		_HitPoint = 0;
-	std::cout << "This attack has " << amount << " damage on ClapTrap " << _Name << " !!!And the current health is "<< _HitPoint << std::endl;
+	std::cout << "This attack has " << amount << " damage on ClapTrap " << _Name << " !!!And the current health is " << RED << _HitPoint << RES << ".\n";
 }
 /* ************************************************************************** */
 
@@ -62,11 +62,53 @@ void	ClapTrap::beRepaired(unsigned int amount){
 	if (_EnergyPoint > 0 && _HitPoint > 0){
 		_HitPoint += amount;
 		_EnergyPoint--;
-		std::cout << "ClapTrap " << _Name << "'s Hitpoint reapaired by "<< amount << " and now is " << _HitPoint << std::endl; 
+		std::cout << BLU << "ClapTrap " << _Name << "'s Hitpoint reapaired by "<< RED << amount << BLU << " and now is " << RED << _HitPoint << RES << ".\n"; 
 	}
 	else
-		std::cout << "ClapTrap " << _Name << " doesn't have enough energy point to repair\n";
+		std::cout << BLU << "ClapTrap " << _Name << " doesn't have enough energy point to repair\n";
 }
 /* ************************************************************************** */
 
-ClapTrap::~ClapTrap() {std::cout << "ClapTrap destructor called\n";}
+std::string	ClapTrap::get_name(){
+	return _Name;
+}
+/* ************************************************************************** */
+
+unsigned int	ClapTrap::get_attack(){
+	return _AttackDamage;
+}
+/* ************************************************************************** */
+
+unsigned int ClapTrap::get_hit(){
+	return _HitPoint;
+}
+/* ************************************************************************** */
+
+unsigned int ClapTrap::get_energy(){
+	return _EnergyPoint;
+}
+/* ************************************************************************** */
+
+void	ClapTrap::objIntroduce(){
+	std::string ClassName;
+	switch(get_energy() - get_attack()){
+		case(30):
+			ClassName = "ScavTrap";
+			break;
+		case(70):
+			ClassName = "FragTrap";
+			break;
+		case(20):
+			ClassName = "DiamondTrap";
+			break;
+		default:
+			ClassName = "ClapTrap";
+			break;}
+	std::cout << YLW << "I'm " << get_name() << ", a robot from the " << ClassName << " class, ";
+	std::cout << "I have " << RED << get_hit() << YLW <<" points amount of hitpoints and ";
+	std::cout << RED << get_energy() << YLW << " points amount of energy and I'm attacking my enemies by ";
+	std::cout << RED << get_attack() << YLW << " points amount of power.\n" << RES;
+}
+/* ************************************************************************** */
+
+ClapTrap::~ClapTrap() {std::cout << BLU << "ClapTrap destructor called\n" << RES;}

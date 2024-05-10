@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 17:07:26 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/09 14:14:51 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/10 10:14:11 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ FragTrap::FragTrap() {std::cout << YLW << "FragTrap default constructor\n" << RE
 /* ************************************************************************** */
 
 FragTrap::FragTrap(std::string name) : ClapTrap(name){
+	std::cout << YLW << "FragTrap name constructor called\n" << RES;
 	_Name = name;
 	_HitPoint = 100;
 	_EnergyPoint = 100;
