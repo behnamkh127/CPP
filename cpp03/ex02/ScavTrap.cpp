@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 15:54:41 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/09 16:35:09 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/11 10:42:07 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ ScavTrap& ScavTrap::operator=(const ScavTrap& rhs){
 void	ScavTrap::attack(std::string target){
 	if(this->_HitPoint > 0 && this->_EnergyPoint > 0){
 		_EnergyPoint--;
-		std::cout << GRN << "ScavTrap " << _Name << " attacks " << target << " , causing " << _AttackDamage << " points of damage!\n" << RES;
+		std::cout << GRN << "ScavTrap " << RES << _Name << " attacks " << target << " , causing " << RED << _AttackDamage << RES << " points of damage!\n" ;
 	}
 	else
-		std::cout << GRN << "ScavTrap " << _Name << " doesn't have enough energy point to attack\n" << RES;
+		std::cout << GRN << "ScavTrap " << _Name << RES << " doesn't have enough energy point to attack\n";
 }
 /* ************************************************************************** */
 

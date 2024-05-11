@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/04 10:58:59 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/10 17:53:28 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/11 10:38:00 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	ClapTrap::takeDamage(unsigned int amount){
 		_HitPoint -= amount;
 	else
 		_HitPoint = 0;
-	std::cout << "This attack has " << amount << " damage on ClapTrap " << _Name << " !!!And the current health is " << RED << _HitPoint << RES << ".\n";
+	std::cout << "This attack has " << amount << " damage on ClapTrap " << BLU << _Name << RES << " !!!And the current health is " << RED << _HitPoint << RES << ".\n";
 }
 /* ************************************************************************** */
 
@@ -62,10 +62,10 @@ void	ClapTrap::beRepaired(unsigned int amount){
 	if (_EnergyPoint > 0 && _HitPoint > 0){
 		_HitPoint += amount;
 		_EnergyPoint--;
-		std::cout << BLU << "ClapTrap " << _Name << "'s Hitpoint reapaired by "<< RED << amount << BLU << " and now is " << RED << _HitPoint << RES << ".\n"; 
+		std::cout  << "ClapTrap "<< BLU << _Name << RES << "'s Hitpoint reapaired by "<< RED << amount << RES << " and now is " << RED << _HitPoint << RES << ".\n"; 
 	}
 	else
-		std::cout << BLU << "ClapTrap " << _Name << " doesn't have enough energy point to repair\n";
+		std::cout << "ClapTrap " << BLU << _Name << RES <<" doesn't have enough energy point to repair\n";
 }
 /* ************************************************************************** */
 

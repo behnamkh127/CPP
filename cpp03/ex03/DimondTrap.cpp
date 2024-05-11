@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/05 17:19:52 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/10 11:51:40 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/11 10:35:18 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ DiamondTrap& DiamondTrap::operator=(const DiamondTrap& rhs){
 /* ************************************************************************** */
 
 void	DiamondTrap::whoAmI(){
-	std::cout << RED << "DiamondTrap object name is : " << _Name << " with this amount of energy: " << ClapTrap::_EnergyPoint << std::endl;
-	std::cout << "ClapTrap object name is : " << ClapTrap::_Name << " with this amount of energy: " << ClapTrap::_EnergyPoint << std::endl << RES;
+	std::cout << RED << "DiamondTrap" << RES << " object name is : " << RED << _Name << RES << std::endl;
+	std::cout << BLU << "ClapTrap" << RES << " object name is : " << BLU << ClapTrap::_Name << RES << std::endl ;
 }
 /* ************************************************************************** */
 

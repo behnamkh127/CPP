@@ -6,7 +6,7 @@ SRC = *.cpp
 
 HDR = *.hpp
 
-TARGET = claptrap
+TARGET = diamondtrap
 
 all: $(TARGET)
 
