@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 11:40:13 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/18 14:25:32 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/18 12:06:03 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 #define D "\xF0\x9F\x90\x95"
 #define C "\xF0\x9F\x90\x88" 
 #define A "\xF0\x9F\x90\xBE"
+#define B "\U0001F9E0"
 
 
 class Animal {
@@ -34,6 +35,6 @@ class Animal {
 		Animal& operator=(const Animal& rhs);
 		virtual ~Animal();
 		
-		void makeSound() const;
+		virtual void makeSound() const = 0;
 		virtual std::string getType() const;
 };

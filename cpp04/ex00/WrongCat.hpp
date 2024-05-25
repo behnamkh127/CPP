@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 12:04:40 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/17 17:38:41 by bekhodad         ###   ########.fr       */
+/*   Created: 2024/05/17 17:18:22 by bekhodad          #+#    #+#             */
+/*   Updated: 2024/05/17 17:36:24 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "WrongAnimal.hpp"
 
-#include "Animal.hpp"
-
-class Cat : virtual public Animal{
+class WrongCat: virtual public WrongAnimal
+{
 	private:
 		std::string _type;
 	public:
-		Cat();
-		Cat(const Cat& rhs);
-		Cat& operator=(const Cat& rhs);
-		~Cat();
-		
+		WrongCat();
+		WrongCat(const WrongCat& rhs);
+		WrongCat& operator=(const WrongCat& rhs);
+		~WrongCat();
+
 		void makeSound() const;
-		std::string getType() const;
 };
+
+

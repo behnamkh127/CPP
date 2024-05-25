@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 12:04:40 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/17 17:38:41 by bekhodad         ###   ########.fr       */
+/*   Created: 2024/05/16 11:40:02 by bekhodad          #+#    #+#             */
+/*   Updated: 2024/05/16 13:57:55 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 #include "Animal.hpp"
 
-class Cat : virtual public Animal{
+class Brain{
 	private:
-		std::string _type;
+		std::string ideas[100];
 	public:
-		Cat();
-		Cat(const Cat& rhs);
-		Cat& operator=(const Cat& rhs);
-		~Cat();
+		Brain();
+		Brain(const Brain& rhs);
+		Brain& operator=(const Brain& rhs);
+		~Brain();
 		
-		void makeSound() const;
-		std::string getType() const;
+		void setIdea(int i, const std::string& idea);
+		std::string getIdea(int i);	
 };

@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   AMateria.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 12:04:40 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/17 17:38:41 by bekhodad         ###   ########.fr       */
+/*   Created: 2024/05/21 11:37:21 by bekhodad          #+#    #+#             */
+/*   Updated: 2024/05/21 12:13:57 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "AMateria.hpp"
 
-#include "Animal.hpp"
+AMateria::AMateria(): _type("") {}//std::cout << "this is AMateria default constructor\n";}
 
-class Cat : virtual public Animal{
-	private:
-		std::string _type;
-	public:
-		Cat();
-		Cat(const Cat& rhs);
-		Cat& operator=(const Cat& rhs);
-		~Cat();
-		
-		void makeSound() const;
-		std::string getType() const;
-};
+AMateria::AMateria(std::string const & type) : _type(type){}
+
+AMateria::AMateria(const AMateria& rhs): _type(rhs._type){}
+
+AMateria& AMateria::operator=(const AMateria& rhs){
+	this->_type = rhs._type;
+	return *this;
+}
+
+AMateria::~AMateria(){};

@@ -1,28 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 12:04:40 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/17 17:38:41 by bekhodad         ###   ########.fr       */
+/*   Created: 2024/05/14 12:24:38 by bekhodad          #+#    #+#             */
+/*   Updated: 2024/05/16 15:29:44 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
-class Cat : virtual public Animal{
+class Dog: virtual public Animal{
 	private:
 		std::string _type;
+		Brain*	dogBrain;
 	public:
-		Cat();
-		Cat(const Cat& rhs);
-		Cat& operator=(const Cat& rhs);
-		~Cat();
+		Dog();
+		Dog(const Dog& rhs);
+		Dog& operator=(const Dog& rhs);
+		~Dog();
 		
 		void makeSound() const;
 		std::string getType() const;
+		void setDogIdea();
+		std::string getDogIdeas(int i);
 };

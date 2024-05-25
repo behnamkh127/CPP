@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/14 12:04:40 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/17 17:38:41 by bekhodad         ###   ########.fr       */
+/*   Created: 2024/05/17 16:06:35 by bekhodad          #+#    #+#             */
+/*   Updated: 2024/05/17 17:38:19 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,14 @@
 
 #include "Animal.hpp"
 
-class Cat : virtual public Animal{
-	private:
+class WrongAnimal{
+	protected:
 		std::string _type;
 	public:
-		Cat();
-		Cat(const Cat& rhs);
-		Cat& operator=(const Cat& rhs);
-		~Cat();
+		WrongAnimal();
+		WrongAnimal(const WrongAnimal& rhs);
+		WrongAnimal& operator=(const WrongAnimal& rhs);
+		virtual ~WrongAnimal();
 		
-		void makeSound() const;
-		std::string getType() const;
+		virtual void makeSound() const;	
 };
