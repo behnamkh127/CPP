@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
+/*   By: codespace <codespace@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 12:49:09 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/17 17:37:24 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/26 10:36:28 by codespace        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ int main()
 
 
 	const WrongAnimal* fake = new WrongCat();
+	const WrongCat* fake2 = new WrongCat();
 	fake->makeSound();
+	fake2->makeSound();
 	delete fake;
 	return 0;
 }
