@@ -6,13 +6,14 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/16 11:40:02 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/16 13:57:55 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:37:42 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Animal.hpp"
+#include <cstdio>
 
 class Brain{
 	private:
@@ -23,6 +24,7 @@ class Brain{
 		Brain& operator=(const Brain& rhs);
 		~Brain();
 		
-		void setIdea(int i, const std::string& idea);
-		std::string getIdea(int i);	
+		void setIdea(std::string type);
+		std::string getIdea(int i);
+		std::string* getIdeas();	
 };

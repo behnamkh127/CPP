@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 12:11:17 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/16 15:33:11 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:54:13 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,11 @@ Dog::Dog(const Dog& rhs) : Animal(rhs){
 
 Dog& Dog::operator=(const Dog& rhs){
 	std::cout << D << RED << "this is Dog cp assignment\n" << RES;
-	delete this->dogBrain;
-	this->dogBrain = new Brain(*rhs.dogBrain);
-	this->_type = rhs._type;
+	if (this != &rhs) {
+		delete this->dogBrain;
+		this->dogBrain = new Brain(*rhs.dogBrain);
+		this->_type = rhs._type;
+	}
 	return *this;
 }
 
@@ -36,27 +38,8 @@ std::string Dog::getType() const{
 	return _type;
 }
 
-void	Dog::setDogIdea(){
-	for(int i = 0; i < 100; i++){
-		if(i == 0){
-			dogBrain->setIdea(i, "this is the dog, first idea.");
-		}
-		else if (i == 1){
-			dogBrain->setIdea(i, "this is the dog, second idea.");
-		}
-		else if (i == 2){
-			dogBrain->setIdea(i, "this is the dog, third idea.");
-		}
-		else{
-			char buffer[50];
-			sprintf(buffer, "this is the dog, %dth idea.", (i+1));
-			dogBrain->setIdea(i, buffer);
-		}
-	}
-}
-
-std::string Dog::getDogIdeas(int i){
-	return dogBrain->getIdea(i);
+Brain* Dog::getBrain() const{
+	return dogBrain;
 }
 
 Dog::~Dog(){

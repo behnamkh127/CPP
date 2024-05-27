@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 12:24:38 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/16 15:29:44 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/27 12:54:05 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ class Dog: virtual public Animal{
 		
 		void makeSound() const;
 		std::string getType() const;
-		void setDogIdea();
-		std::string getDogIdeas(int i);
+		Brain* getBrain() const;
 };

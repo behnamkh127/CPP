@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 12:04:40 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/16 13:39:54 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:40:41 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,5 @@ class Cat : virtual public Animal{
 		
 		void makeSound() const;
 		std::string getType() const;
-		void setCatIdea();
-		std::string getCatIdeas(int i);
+		Brain* getBrain() const;
 };

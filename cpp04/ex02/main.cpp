@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 12:49:09 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/18 12:07:38 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/27 13:45:57 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,31 +17,31 @@
 
 int main()
 {
-	// const Animal* meta = new Animal();
+	const Animal* meta = new Animal();
 // const Animal* j = new Dog();
 // const Animal* i = new Cat();
 // delete j;//should not create a leak
 // delete i;
-Animal** animalFarm = new Animal*[10];
-for(int i = 0; i < 10; i++){
-	if(i < 5){
-		animalFarm[i] = new Cat();
-		animalFarm[i]->makeSound();
-		Cat *cat = dynamic_cast<Cat *>(animalFarm[i]);
-		cat->setCatIdea();
-		std::cout << cat->getCatIdeas(i) << std::endl;
+	Animal** animalFarm = new Animal*[10];
+	for(int i = 0; i < 10; i++){
+		if(i < 5){
+			animalFarm[i] = new Cat();
+			animalFarm[i]->makeSound();
+			Cat *cat = dynamic_cast<Cat *>(animalFarm[i]);
+			cat->getBrain()->setIdea(cat->getType());
+			std::cout << cat->getBrain()->getIdea(i) << std::endl;
+		}
+		else{
+			animalFarm[i] = new Dog();
+			animalFarm[i]->makeSound();
+			Dog *dog = dynamic_cast<Dog *>(animalFarm[i]);
+			dog->getBrain()->setIdea(dog->getType());
+			std::cout << B << dog->getBrain()->getIdea(i) << std::endl;
+		}
 	}
-	else{
-		animalFarm[i] = new Dog();
-		animalFarm[i]->makeSound();
-		Dog *dog = dynamic_cast<Dog *>(animalFarm[i]);
-		dog->setDogIdea();
-		std::cout << B << dog->getDogIdeas(i) << std::endl;
+	for(int i = 0; i < 10; i++){
+		delete animalFarm[i];
 	}
-}
-for(int i = 0; i < 10; i++){
-	delete animalFarm[i];
-}
-delete[] animalFarm;
+	delete[] animalFarm;
 return 0;
 }

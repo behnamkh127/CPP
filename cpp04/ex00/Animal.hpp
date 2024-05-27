@@ -6,7 +6,7 @@
 /*   By: bekhodad <bekhodad@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/05/14 11:40:13 by bekhodad          #+#    #+#             */
-/*   Updated: 2024/05/18 14:25:32 by bekhodad         ###   ########.fr       */
+/*   Updated: 2024/05/27 11:11:47 by bekhodad         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,6 @@ class Animal {
 		Animal& operator=(const Animal& rhs);
 		virtual ~Animal();
 		
-		void makeSound() const;
+		virtual void makeSound() const;
 		virtual std::string getType() const;
 };
